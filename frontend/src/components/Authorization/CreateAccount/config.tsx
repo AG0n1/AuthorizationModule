@@ -1,6 +1,9 @@
 import {IAuthFieldsGenerator} from "../../../types/generatorTypes.tsx";
 import {ru} from "../../../constants/messages.tsx";
 import {IFooterConfig} from "../../Layout/Footer";
+import {IUFormConfig} from "../../common/UForm";
+import {ICreateAccountDTO} from "../../../types/authTypes.tsx";
+import s from "../Login/styles.module.scss";
 
 export const createAccountFieldsConfig: IAuthFieldsGenerator[] = [
     {
@@ -33,4 +36,16 @@ export const footerConfig: IFooterConfig = {
     label: 'Уже есть аккаунт?',
     link: 'Войти',
     to: '/login'
+}
+
+export const formConfig: IUFormConfig<ICreateAccountDTO> = {
+    label: ru.createAccount.label,
+    authFieldsConfig: createAccountFieldsConfig,
+    className: s.login_form,
+    onFinishAction: (values: ICreateAccountDTO) => console.log(values),
+    button: {
+        label: ru.buttons.create,
+        className: s.login_button,
+    },
+    footer: footerConfig,
 }

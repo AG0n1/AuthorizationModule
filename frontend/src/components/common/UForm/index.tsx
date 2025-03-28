@@ -3,18 +3,20 @@ import Footer, {IFooterConfig} from "../../Layout/Footer";
 import {Button, Form} from "antd";
 import {authFieldsGenerator} from "../../../utils/generators.tsx";
 
+export interface IUFormConfig<T> {
+    label: string;
+    authFieldsConfig: IAuthFieldsGenerator[];
+    button: {
+        label: string,
+        className: string
+    };
+    footer: IFooterConfig;
+    onFinishAction: (values: T) => any | Promise<any> | void,
+    className: string;
+}
+
 interface IUForm<T> {
-    cfg: {
-        label: string;
-        authFieldsConfig: IAuthFieldsGenerator[];
-        button: {
-            label: string,
-            className: string
-        };
-        footer: IFooterConfig;
-        onFinishAction: (values: T) => any | Promise<any> | void,
-        className: string;
-    },
+    cfg: IUFormConfig<T>,
 }
 
 const UForm = <T,>({cfg}: IUForm<T>) => {
