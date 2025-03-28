@@ -3,6 +3,7 @@ import {Route} from "react-router-dom";
 import {v4 as uuid} from 'uuid'
 import Input from "antd/es/input/Input";
 import {Button, Form, Select} from "antd";
+import {ru} from "../constants/messages.tsx";
 
 export const routesGenerator = (routesConfig: IRoutesGenerator[]) => routesConfig.map((element: IRoutesGenerator) => {
     return (
@@ -32,7 +33,7 @@ export const authFieldsGenerator = (authFieldsConfig: IAuthFieldsGenerator[]) =>
     return (
         <Form.Item
             name={element.name}
-            rules={[{required: element.required ?? false}]}
+            rules={[{required: element.required ?? false, message: ru.errors.validationMessage}]}
             key={uuid()}
             label={element.label}
         >
