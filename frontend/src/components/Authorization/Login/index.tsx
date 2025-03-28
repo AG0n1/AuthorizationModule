@@ -1,31 +1,29 @@
 import {FC, JSX} from "react";
-import {Button, Form} from "antd";
-import {authFieldsGenerator} from "../../../utils/generators.tsx";
 import {footerConfig, loginFieldsConfig} from "./config.tsx";
-
+import cn from 'classnames'
 import s from './styles.module.scss'
 import {ru} from "../../../constants/messages.tsx";
 import {ILoginDTO} from "../../../types/authTypes.tsx";
-import Footer from "../../Layout/Footer";
+import UForm from "../../common/UForm";
 
 const Login: FC = (): JSX.Element => {
     return (
         <main
             className={s.main_login}
         >
-            <Form
-                onFinish={(values: ILoginDTO) => console.log(values)}
-                className={s.login_form}
-            >
-                <h1>
-                    {ru.login.label}
-                </h1>
-                {authFieldsGenerator(loginFieldsConfig)}
-                <Button htmlType={'submit'} className={s.login_button}>
-                    {ru.buttons.enter}
-                </Button>
-                <Footer cfg={footerConfig} />
-            </Form>
+            <UForm<ILoginDTO>
+                cfg={{
+                    label: ru.login.label,
+                    authFieldsConfig: loginFieldsConfig,
+                    className: cn(s.login_form, s.login_field_width),
+                    onFinishAction: (values: ILoginDTO) => console.log(values),
+                    button: {
+                        label: ru.buttons.enter,
+                        className: s.login_button,
+                    },
+                    footer: footerConfig,
+                }}
+            />
         </main>
     )
 }

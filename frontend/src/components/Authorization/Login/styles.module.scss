@@ -20,13 +20,15 @@
   background: white;
   border-radius: 10px;
 
-  & label {
-    min-width: 200px !important;
-  }
-
   h1 {
     margin-bottom: 20px;
   }
+}
+
+.login_field_width {
+  //& label {
+  //  min-width: 100px !important;
+  //}
 }
 
 .login_button {

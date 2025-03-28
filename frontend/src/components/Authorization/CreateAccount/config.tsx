@@ -1,5 +1,6 @@
 import {IAuthFieldsGenerator} from "../../../types/generatorTypes.tsx";
 import {ru} from "../../../constants/messages.tsx";
+import {IFooterConfig} from "../../Layout/Footer";
 
 export const createAccountFieldsConfig: IAuthFieldsGenerator[] = [
     {
@@ -27,3 +28,9 @@ export const createAccountFieldsConfig: IAuthFieldsGenerator[] = [
         required: true,
     },
 ]
+
+export const footerConfig: IFooterConfig = {
+    label: 'Уже есть аккаунт?',
+    link: 'Войти',
+    to: '/login'
+}
