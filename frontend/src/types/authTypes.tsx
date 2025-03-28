@@ -3,6 +3,10 @@ export interface ILoginDTO {
     password: string;
 }
 
+export interface ILogoutDTO {
+    userId: string;
+}
+
 export interface ICreateAccountDTO {
     userName: string;
     email: string;

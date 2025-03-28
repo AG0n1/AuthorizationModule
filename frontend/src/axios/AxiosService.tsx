@@ -50,7 +50,7 @@ export default class AxiosService {
           data?.data?.status === 200 ||
           data?.status === 200
         ) {
-          return { data, ok: true };
+          return { data: data?.data, ok: true };
         } else {
           throw new Error(
               ru.errors.unexpectedError,

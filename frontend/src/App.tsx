@@ -10,9 +10,11 @@ function App() {
                 {routesGenerator(logoutUser)}
                 <Route
                     path={'*'}
-                    element={<Navigate
-                        to={'/login'}
-                    />}
+                    element={
+                        <Navigate
+                            to={'/login'}
+                        />
+                    }
                 />
             </Routes>
         </BrowserRouter>

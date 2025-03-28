@@ -5,6 +5,7 @@ import {IUFormConfig} from "../../common/UForm";
 import cn from "classnames";
 import s from "./styles.module.scss";
 import {ILoginDTO} from "../../../types/authTypes.tsx";
+import {login} from "./actions.tsx";
 
 export const loginFieldsConfig: IAuthFieldsGenerator[] = [
     {
@@ -33,7 +34,7 @@ export const formConfig: IUFormConfig<ILoginDTO> = {
     label: ru.login.label,
     authFieldsConfig: loginFieldsConfig,
     className: cn(s.login_form, s.login_field_width),
-    onFinishAction: (values) => console.log(values),
+    onFinishAction: (values: ILoginDTO) => login(values),
     button: {
         label: ru.buttons.enter,
         className: s.login_button,

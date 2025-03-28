@@ -4,6 +4,7 @@ import {IFooterConfig} from "../../Layout/Footer";
 import {IUFormConfig} from "../../common/UForm";
 import {ICreateAccountDTO} from "../../../types/authTypes.tsx";
 import s from "../Login/styles.module.scss";
+import {createAccount} from "./actions.tsx";
 
 export const createAccountFieldsConfig: IAuthFieldsGenerator[] = [
     {
@@ -42,7 +43,7 @@ export const formConfig: IUFormConfig<ICreateAccountDTO> = {
     label: ru.createAccount.label,
     authFieldsConfig: createAccountFieldsConfig,
     className: s.login_form,
-    onFinishAction: (values: ICreateAccountDTO) => console.log(values),
+    onFinishAction: (values: ICreateAccountDTO) => createAccount(values),
     button: {
         label: ru.buttons.create,
         className: s.login_button,
